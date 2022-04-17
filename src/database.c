@@ -59,6 +59,7 @@ int db_insert_udata(PGconn *conn, sUserData *ud){
 	strftime(birthdate,sizeof(birthdate),"%Y-%m-%d", &tm);
 	setlocale(LC_NUMERIC,"C");
     sprintf(query,"INSERT INTO user_data (user_data_changed, weight, height, birthdate, sex, activity, vo2max, hrmax)VALUES ('%s',%f,%d,'%s',%d,%d,%d,%d);",editdate,ud->weight, ud->height, birthdate, ud->sex, ud->activity, ud->vo2max, ud->HRMax);
+    //printf("%s", query);
 
     res=PQexec(conn,query);
     if (PQresultStatus(res) != PGRES_COMMAND_OK){
@@ -88,6 +89,7 @@ int db_insert_trn(PGconn *conn, sTraining *trn){
     res=PQexec(conn,query);
     if (PQresultStatus(res) != PGRES_COMMAND_OK){
         printf("db_insert_trn error: %s\n", PQerrorMessage(conn));
+        printf("%s", query);
         PQclear(res);
     	free(query);
         return 1;
