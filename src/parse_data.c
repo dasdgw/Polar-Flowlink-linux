@@ -16,7 +16,7 @@ int parseUserData(unsigned char *buf, int bufsize, PGconn *db){
 		return 1;
 	}
 	sUserData ud;
-	ud.weight=(float)((buf[6]<<8)+buf[5])*0.045359;
+	ud.weight=(float)((buf[6]<<8)+buf[5])*0.45359;
 	ud.height=buf[7];
 	struct tm time;	
 	time.tm_sec=1;
@@ -43,7 +43,7 @@ int parseUserData(unsigned char *buf, int bufsize, PGconn *db){
 		db_insert_udata(db,&ud);	
 	}
 
-	printf("weight=%.1f kg (%.1f lbs)\n", (double)((buf[6]<<8)+buf[5])*0.045359,(double)((buf[6]<<8)+buf[5])/10 );
+	printf("weight=%.1f kg (%.1f lbs)\n", (double)((buf[6]<<8)+buf[5])*0.45359,(double)((buf[6]<<8)+buf[5]));
 	printf("height=%d cm\n", buf[7]);
 	printf("birthdate=%d.%d.%d\n",buf[8],buf[9],1900+buf[10]);
 	printf("sex=%s\n", buf[11]?"Female":"Male");
