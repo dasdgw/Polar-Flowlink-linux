@@ -48,10 +48,10 @@ printf("polar -- simple polar FT80 HRM FlowLink transfer into database and basic
 
 	setlocale(LC_NUMERIC,"C");
 	db=1;
-	if(test_db_connection("samo")){
+	if(test_db_connection("dasdgw")){
 		db=NULL;
 	} else {
-		db=connect_db("samo");
+		db=connect_db("dasdgw");
 	}
 
 	handle=openHID(0x0da4,0x0003);
