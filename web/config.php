@@ -10,9 +10,9 @@ $programUILanguage='English';
 $programUseDB=true;
 
 $dbms='postgres';
-$dbhost='127.0.0.1';
-$dbuser='samo';
-$dbpasswd='samoweb';
-$dbname='samo';
+$dbhost='/var/run/postgresql';
+$dbuser='dasdgw';
+$dbpasswd='dasdgw';
+$dbname='dasdgw';
 
 ?>
