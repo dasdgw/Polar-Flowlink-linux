@@ -64,7 +64,8 @@
         var options = {'title':'Current week training review by zone',
 		      'colors':['blue','green','red','gray'],
                        'width':400,
-                       'height':300};
+                       'height':300,
+                       is3D: true};
 	} else if(week==1){
 <?php
 	echo 'data.addRows(';
@@ -74,8 +75,9 @@
         var options = {'title':'Previous week training review by zone',
 		      'colors':['blue','green','red','gray'],
                        'width':400,
-                       'height':300};
-} else {
+                       'height':300,
+                       is3D: true};
+	} else {
 <?php
 	echo 'data.addRows(';
 	add_zones(-1);
@@ -84,7 +86,8 @@
         var options = {'title':'Total training review by zone',
 		      'colors':['blue','green','red','gray'],
                        'width':400,
-                       'height':300};
+                       'height':300,
+                       is3D: true};
 
 }
 
@@ -152,6 +155,16 @@ function drawBar(div, group){
 	  isStacked: true,
           title: 'Daily training overview',
           hAxis: {title: 'Date'},
+	  //timeline: { singleColor: '#1E90FF',tooltipDateFormat: 'd/MM/YY' },
+          /*
+	    hAxis: {
+	      title: 'Date',
+		textStyle: {
+		    background-color: cyan;
+		    color: magenta;
+		    font-weight: bold;
+		},
+	  },*/
 	   seriesType: "bars",
            series: {4: {targetAxisIndex:1,
 			type: "line"},
