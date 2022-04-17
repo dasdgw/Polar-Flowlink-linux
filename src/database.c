@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <locale.h>
 void close_db(PGconn *conn){
      PQfinish(conn);
 }
@@ -54,6 +55,7 @@ int db_insert_udata(PGconn *conn, sUserData *ud){
 	strftime(editdate,sizeof(editdate),"%Y-%m-%d %H:%M:%S %Z", &tm);
 	tm = *localtime(&ud->birthdate);
 	strftime(birthdate,sizeof(birthdate),"%Y-%m-%d", &tm);
+	setlocale(LC_NUMERIC,"C");
     sprintf(query,"INSERT INTO user_data (user_data_changed, weight, height, birthdate, sex, activity, vo2max, hrmax)VALUES ('%s',%f,%d,'%s',%d,%d,%d,%d);",editdate,ud->weight, ud->height, birthdate, ud->sex, ud->activity, ud->vo2max, ud->HRMax);
 
     res=PQexec(conn,query);
