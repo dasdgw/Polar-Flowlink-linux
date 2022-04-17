@@ -63,34 +63,34 @@ printf("polar -- simple polar FT80 HRM FlowLink transfer into database and basic
 	present=poolPresence(handle);
 	if(present){
 //		usleep(500*1000);
-		executeCommand1(handle,buf,256,cmd1,5, FALSE);
+		executeCommand1(handle,buf,256,cmd1,5, TRUE);
 		n=parseCommand1(buf,256);
 //		usleep(500*1000);
-		executeCommand1(handle,buf,256,cmd2,5, FALSE);
-		readData(handle,buf,256, FALSE);
+		executeCommand1(handle,buf,256,cmd2,5, TRUE);
+		readData(handle,buf,256, TRUE);
 //		usleep(500*1000);
 		printf("Great, let's get personal data!");
-		executeCommand1(handle,buf,256,cmdusr,5, FALSE);
+		executeCommand1(handle,buf,256,cmdusr,5, TRUE);
 		parseUserData(buf,256, db);
 		printf("Let's get training data!");	
 		for(i=0;i<n;i++){
 		cmdtrain[5]=i;
-		executeCommand1(handle,buf,256,cmdtrain,7, FALSE);
+		executeCommand1(handle,buf,256,cmdtrain,7, TRUE);
 		parseTrainingData(buf,256,db);
 		}
-		executeCommand1(handle,buf,256,cmd3,5, FALSE);
+		executeCommand1(handle,buf,256,cmd3,5, TRUE);
 		parseVO2maxMeasurements(buf,256);
-		executeCommand1(handle,buf,256,cmd4,5, FALSE);
+		executeCommand1(handle,buf,256,cmd4,5, TRUE);
 		parseActiveProgram(buf,256);
-		executeCommand1(handle,buf,256,cmd4,5, FALSE);
-		executeCommand1(handle,buf,256,cmd5,5, FALSE);
+		executeCommand1(handle,buf,256,cmd4,5, TRUE);
+		executeCommand1(handle,buf,256,cmd5,5, TRUE);
 		while(buf[1]){
-		readData(handle,buf,256, FALSE);
+		readData(handle,buf,256, TRUE);
 		}
 		//readData(handle,buf,256);
-		executeCommand1(handle,buf,256,cmd6,5, FALSE);
+		executeCommand1(handle,buf,256,cmd6,5, TRUE);
 		while(buf[1]){
-		readData(handle,buf,256, FALSE);
+		readData(handle,buf,256, TRUE);
 		}
 	/*	executeCommand1(handle,buf,256,cmd7,5);
 		while(buf[1]){

@@ -109,8 +109,16 @@ int poolPresence(hid_device *handle){
 
 int executeCommand1(hid_device *handle, unsigned char *buf, int bufsize, unsigned char *command, int commandsize, int showdata){
 	int res;
+	int i;
 	memset(buf,0,bufsize*sizeof(unsigned char));
 	memcpy(buf,command,commandsize*sizeof(unsigned char));
+	printf("request:\n   ");
+	// Print out the returned buffer.
+	if (showdata==TRUE){
+		for (i = 0; i < commandsize*sizeof(unsigned char); i++)
+			printf("%02hhx ", buf[i]);
+		printf("\n");
+	}
 	res = hid_write(handle, buf, 17);
 	if (res < 0) {
 		printf("Unable to write()\n");
