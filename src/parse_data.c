@@ -57,7 +57,7 @@ int parseUserData(unsigned char *buf, int bufsize, PGconn *db){
 
 int parseCommand1(unsigned char *buf, int bufsize){
 	if(buf[2]!=0x3c && buf[3]!=0x00){
-		printf("Buffer does not consist of training data!\n");
+		printf("Buffer does not consist of number of saved trainings!\n");
 		return -1;
 	}
 
