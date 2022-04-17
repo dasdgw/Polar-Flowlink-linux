@@ -62,7 +62,8 @@ int db_insert_udata(PGconn *conn, sUserData *ud){
 
     res=PQexec(conn,query);
     if (PQresultStatus(res) != PGRES_COMMAND_OK){
-        printf("db_insert_trn error: %s\n", PQerrorMessage(conn));
+        printf("db_insert_udata error: %s\n", PQerrorMessage(conn));
+        printf("%s", query);
         PQclear(res);
     	free(query);
         return 1;
