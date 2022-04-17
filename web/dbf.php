@@ -31,7 +31,7 @@ class baza{
 		$blob=pg_lo_import($this->dbhandle, $filename);
 		pg_query($this->dbhandle,"commit");
 		return $blob;
-		//TODO: kontola, ali je bil query ok izveden!
+		//TODO: check if query was ok!
 	}
 
 	public function getblob($oid, $filename){
@@ -39,7 +39,7 @@ class baza{
 		$blob=pg_lo_export($this->dbhandle, $oid, $filename);
 		pg_query($this->dbhandle,"commit");
 		return $blob;
-		//TODO: kontola, ali je bil query ok izveden!
+		//TODO: check if query was ok!
 	}
 
 	public function getstreamblob($oid){
@@ -48,7 +48,7 @@ class baza{
 		$blob=pg_lo_read_all($handle);
 		pg_query($this->dbhandle,"commit");
 		return $blob;
-		//TODO: kontola, ali je bil query ok izveden!
+		//TODO: check if query was ok!
 	}
 
 	public function deleteblob($oid){
@@ -56,7 +56,7 @@ class baza{
 		$blob=pg_lo_unlink($this->dbhandle, $oid);
 		pg_query($this->dbhandle,"commit");
 		return $blob;
-		//TODO: kontola, ali je bil query ok izveden!
+		//TODO: check if query was ok!
 	}
 
 	public function close(){
