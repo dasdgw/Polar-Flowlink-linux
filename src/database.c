@@ -14,6 +14,8 @@ PGconn *connect_db(char *database_name){
     conninfo=(char *)malloc(255*sizeof(char));
     strcpy(conninfo,"dbname = ");
     strcat(conninfo, database_name);
+    strcat(conninfo," password = ");
+    strcat(conninfo, database_name);
 	conn = PQconnectdb(conninfo);
     free(conninfo);
 	if (PQstatus(conn) != CONNECTION_OK)
