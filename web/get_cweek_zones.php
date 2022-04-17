@@ -1,5 +1,5 @@
 <?php
-include './dbf.php';
+require './dbf.php';
 function add_zones($a){
 $db=new baza();
 $db->connect();

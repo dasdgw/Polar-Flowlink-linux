@@ -7,9 +7,14 @@ class baza{
 	public $crow=NULL;
 
 	public function connect(){
-		include './config.php';
-		if($dbms=='postgres') $this->dbhandle=pg_connect("host=".$dbhost." dbname=".$dbname." user=".$dbuser." password=".$dbpasswd);
-		else $this->dbhandle=NULL;
+		require './config.php';
+		$conn_string = "host=".$dbhost." dbname=".$dbname." user=".$dbuser." password=".$dbpasswd;
+		//echo $conn_string;
+		if($dbms=='postgres') {
+			$this->dbhandle=pg_connect($conn_string) or die('Could not connect: ' . pg_last_error());
+		}
+		else {echo 'no postgres';$this->dbhandle=NULL; echo 'connect failed';}
+		if ($this->dbhandle == false) echo 'connect to db failed';
 	}
 
 	public function query($sql){

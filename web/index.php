@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
 
@@ -16,7 +17,7 @@
   </style>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <!--Load the AJAX API-->
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <!--
 <script src="prototype.js" type="text/javascript"></script>
 <script src="functionality.js" type="text/javascript"></script>
@@ -26,7 +27,7 @@
 
 
       // Load the Visualization API and the piechart package.
-      google.load('visualization', '1.0', {'packages':['corechart']});
+      google.load('visualization', 'current', {'packages':['corechart']});
 
       // Set a callback to run when the Google Visualization API is loaded.
       google.setOnLoadCallback(drawCharts);
@@ -53,8 +54,10 @@
         data.addColumn('number', 'Percentage in zone');
 	if(week==0){
 <?php
+	ini_set("log_errors", "On");
+	ini_set("error_log", "/error.log");
 	echo 'data.addRows(';
-	include 'get_cweek_zones.php';
+	require 'get_cweek_zones.php';
 	add_zones(0);
 	echo ');';
 ?>
