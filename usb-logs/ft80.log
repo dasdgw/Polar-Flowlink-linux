@@ -1,0 +1,53 @@
+17
+0
+50  training data
+6   training data
+0
+70   id
+4
+249
+18   dur s
+19   dur min
+1    dur h
+16   start day
+4    start month
+22   start year
+34   start sec
+80   start min
+17   start h
+57
+3
+19
+50
+53  time in zone 1 sec
+9   time in zone 1 min
+0   time in zone 1 h
+21  time in zone 2 sec
+36  time in zone 2 min
+0   time in zone 2 h
+19  time in zone 3 sec
+57  time in zone 3 min
+0   time in zone 3 h
+107 Zone1 hr limits
+124 Zone1 hr limits
+125 Zone2 hr limits
+142 Zone2 hr limits
+143 Zone3 hr limits
+161 Zone3 hr limits
+25  cal burned low
+3   cal burned high
+13  fat burn %
+140 avg hr
+158 max hr
+179 HRmax
+
+training_id=70
+training duration=1:13:12
+start time=16.4.2022 11:50:22
+Time in zone 1=0:9:35 in zone 2=0:24:15 in zone 3=0:39:13'
+Zone1 HR limits (107,124), Zone2 HR limits (125,142), Zone3 HR limits (143,161)
+Calories burned=793
+Fat burn percentage=13 %
+Average HR=140
+Max HR=158
+HRmax=179
